@@ -1,4 +1,0 @@
-2025-01-24 09:44:08,218 (INFO)- django.utils.autoreload- Watching for file changes with StatReloader
-2025-01-24 09:47:11,614 (INFO)- django.utils.autoreload- Watching for file changes with StatReloader
-2025-01-24 09:50:31,627 (INFO)- django.utils.autoreload- Watching for file changes with StatReloader
-2025-01-24 09:50:34,208 (WARNING)- django.request- Not Found: /
