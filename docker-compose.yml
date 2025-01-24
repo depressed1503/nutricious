@@ -1,0 +1,65 @@
+version: '3'
+
+services:
+  pgdb:
+    image: postgres:latest
+    container_name: template_pgdb
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      PG_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - "5432:5432"
+
+  back:
+    env_file:
+      - ".env"
+    build:
+      context: back
+      dockerfile: Dockerfile
+    container_name: tempalate_backend
+    environment:
+      DATABASE_NAME: ${DB_NAME}
+      DATABASE_USER: ${DB_USER}
+      DATABASE_PASSWORD: ${DB_PASSWORD}
+      DATABASE_HOST: ${DB_HOST}
+      DATABASE_PORT: 5432
+      ENV_EMAIL: ${ENV_EMAIL}
+      ENV_PASSWORD: ${ENV_PASSWORD}
+      DJANGO_SECRET_KEY: ${DJANGO_SECRET_KEY}
+      DEBUG: 0
+
+    command: >
+     bash -c "python manage.py migrate &&
+         echo \"from api.models import CustomUser; CustomUser.objects.create_superuser('$${ENV_EMAIL}', '$${ENV_EMAIL}', '$${ENV_PASSWORD}') if not CustomUser.objects.filter(username='$${ENV_EMAIL}').exists() else None\" | python manage.py shell &&
+         python manage.py collectstatic --noinput &&
+         daphne -b 0.0.0.0 -p 8000 back.asgi:application"
+    ports:
+      - "8000:8000"
+    depends_on:
+      - pgdb
+    volumes:
+      - media:/vol/media/
+      - static:/vol/static/
+
+  front:
+    build:
+      context: front
+      dockerfile: ./Dockerfile
+      args:
+        - VITE_BACKEND_IP=${VITE_BACKEND_IP}
+        - VITE_DEBUG=${DEBUG}
+    container_name: financical_frontend
+    command: serve -s dist
+    ports:
+      - '3000:3000'
+volumes:
+  postgres_data:
+  media:
+  static:
+networks:
+  web:
+    external: true
