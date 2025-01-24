@@ -1,4 +1,4 @@
-from rest_framework import response, permissions, status, views
+from rest_framework import response, permissions, status, views, generics
 from django.contrib.auth import authenticate, login, logout
 from django.middleware.csrf import get_token
 from django.conf import settings
@@ -65,3 +65,8 @@ class CurrentUserView(views.APIView):
 
     def get(self, request, *args, **kwargs):
         return response.Response(data=CustomUserSerializer(self.request.user).data)
+
+class RegistrationView(generics.CreateAPIView):
+    permission_classes = [permissions.AllowAny]
+    queryset = CustomUser.objects.all()
+    serializer_class = CustomUserSerializer
