@@ -1,6 +1,6 @@
 # Универсальный шаблон для быстрого запуска разработки на Django + React
 
-Перед запуском необходимо создать файл .env в корневой директории проекта и в директории /back, заполнив его данными из .env_example.
+Перед запуском необходимо создать файл .env в корневой директории проекта и в директориях /back и /front, заполнив их данными из .env_example.
 
 ## Запуск через docker compose
 ```shell
@@ -25,6 +25,7 @@ cd back
 python -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
+python3 manage.py migrate
 python3 manage.py runserver
 ```
 
