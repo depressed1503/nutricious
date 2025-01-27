@@ -30,7 +30,7 @@ python3 manage.py runserver
 ```
 
 ## Запуск в проде
-Для запуска в проде используйте инструкцию "Запуск через docker compose" предварительно скопировав файл nginx/nginx.conf в папку /etc/nginx/sites-available и отредактировав его под свои нужны в местах, помеченных комменатриями. Также создайте symlink между файлом nginx.conf и директорией /etc/nginx/sites-enabled
+Для запуска в проде используйте инструкцию "Запуск через docker compose" предварительно скопировав файл nginx/nginx.conf в папку /etc/nginx/sites-available и отредактировав его под свои нужны в местах, помеченных комменатриями. Также создайте symlink между файлом nginx.conf и директорией /etc/nginx/sites-enabled/
 ```shell
 sudo ln -s /etc/nginx/sites-available/nginx.conf /etc/nginx/sites-enabled/
 ```
