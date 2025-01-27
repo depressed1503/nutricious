@@ -2,6 +2,6 @@ venv
 .venv
 env
 .env
-.sqlite3
-.log
+*.sqlite3
+*.log
 __pycache__
