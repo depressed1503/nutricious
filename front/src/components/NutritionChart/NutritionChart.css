@@ -1,0 +1,18 @@
+.chart {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    max-width: 800px;
+    border-radius: 15px;
+    box-shadow: 1px 1px 5px 5px rgba(0, 0, 0, .1);
+}
+.chart__filters {
+    display: flex;
+    justify-content: space-around;
+}
+
+.chart__data {
+    display: flex;
+    flex-direction: column;
+}

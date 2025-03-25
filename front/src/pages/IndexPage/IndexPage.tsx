@@ -1,17 +1,9 @@
-import { useAuth } from "@/context/AuthContext"
+import NutritionChart from "@/components/NutritionChart";
 
 export default function IndexPage() {
-    const { user } = useAuth()
     return (
-        <div>
-            {user ? 
-                <>
-                    <div>Пользователь: {user.first_name} {user.last_name}</div> 
-                    <a href="/logout">Выход</a>
-                </>
-                : 
-                <div><a href="/login">Вход</a></div>
-            }
+        <div style={{width: "100dvw", height: "100dvh", display: "grid", placeContent: "center"}}>
+            <NutritionChart></NutritionChart>
         </div>
     )
 }
