@@ -16,3 +16,9 @@
     display: flex;
     flex-direction: column;
 }
+
+.chart__popup {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
