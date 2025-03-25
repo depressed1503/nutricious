@@ -23,8 +23,12 @@ class MealSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = Meal
 		fields = '__all__'
+		read_only_fields = ['user',]
+	
 		
 class MealTemplateSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = MealTemplate
 		fields = '__all__'
+		read_only_fields = ['user',]
+	

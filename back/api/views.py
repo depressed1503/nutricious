@@ -79,8 +79,14 @@ class MealListCreateAPIView(generics.ListCreateAPIView):
     def get_queryset(self):
         return Meal.objects.filter(user=self.request.user)
 
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
+
 class MealTemplateListCreateAPIView(generics.ListCreateAPIView):
     serializer_class = MealTemplateSerializer
 
     def get_queryset(self):
         return MealTemplate.objects.filter(user=self.request.user)
+
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)

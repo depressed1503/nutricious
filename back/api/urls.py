@@ -8,4 +8,6 @@ urlpatterns = [
     path("csrf/", CSRFTokenView.as_view()),
     path("current_user/", CurrentUserView.as_view()),
     path("registration/", RegistrationView.as_view()),
+    path("meal/", MealListCreateAPIView.as_view()),
+    path("meal/templates/", MealTemplateListCreateAPIView.as_view()),
 ]
