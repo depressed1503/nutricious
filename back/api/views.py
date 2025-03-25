@@ -72,3 +72,15 @@ class RegistrationView(generics.CreateAPIView):
     permission_classes = [permissions.AllowAny]
     queryset = CustomUser.objects.all()
     serializer_class = CustomUserSerializer
+
+class MealListCreateAPIView(generics.ListCreateAPIView):
+    serializer_class = MealSerializer
+
+    def get_queryset(self):
+        return Meal.objects.filter(user=self.request.user)
+
+class MealTemplateListCreateAPIView(generics.ListCreateAPIView):
+    serializer_class = MealTemplateSerializer
+
+    def get_queryset(self):
+        return MealTemplate.objects.filter(user=self.request.user)
