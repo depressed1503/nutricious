@@ -18,3 +18,13 @@ class CustomUserSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = CustomUser
 		fields = '__all__'
+
+class MealSerializer(serializers.ModelSerializer):
+	class Meta:
+		model = Meal
+		fields = '__all__'
+		
+class MealTemplateSerializer(serializers.ModelSerializer):
+	class Meta:
+		model = MealTemplate
+		fields = '__all__'
