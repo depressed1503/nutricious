@@ -12,6 +12,7 @@ class Meal(models.Model):
     proteins = models.FloatField(default=0, verbose_name='Белки')
     fats = models.FloatField(default=0, verbose_name='Жиры')
     carbs = models.FloatField(default=0, verbose_name='Углеводы')
+    datetime = models.DateTimeField(auto_now_add=True, verbose_name='Дата-время')
 
 class MealTemplate(models.Model):
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, verbose_name='Пользователь')

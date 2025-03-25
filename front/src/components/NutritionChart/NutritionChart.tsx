@@ -19,7 +19,7 @@ export default function NutritionChart() {
 
     const addMealMutation = useMutation({
         mutationFn: postMeal,
-        onSuccess: () => queryClient.invalidateQueries({queryKey: ["meal"]})
+        onSuccess: () => queryClient.invalidateQueries({queryKey: ["meals"]})   
     })
 
     const proteins = useMemo(() => {
