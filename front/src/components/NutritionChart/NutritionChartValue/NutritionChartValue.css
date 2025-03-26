@@ -1,6 +1,6 @@
 .chart__value {
     display: grid;
-    grid-template-columns: 1fr 7px auto 1fr;
+    grid-template-columns: 20px auto 1fr;
     gap: 10px;
     align-items: center;
 }
@@ -22,30 +22,24 @@
     top: 0;
 }
 
-.chart__value__bar__circle {
-    width: 7px;
-    height: 7px;
-    border-radius: 7px;
-}
-
 .calories {
-    background-color: hsl(33, 100%, 88%);
+    background-color: hsl(30, 100%, 50%);
 }
 
 .proteins {
-    background-color: hsl(26, 39%, 93%);
+    background-color: hsl(220, 60%, 55%);
 }
 
 .fats {
-    background-color: hsl(42, 100%, 67%);
+    background-color: hsl(50, 100%, 45%);
 }
 
 .carbs {
-    background-color: hsl(0, 96%, 62%);
+    background-color: hsl(140, 84%, 61%);
 }
 
 .extra {
-    background-color: hsl(0, 51%, 37%);
+    background-color: hsl(130, 60%, 39%);
 }
 
 

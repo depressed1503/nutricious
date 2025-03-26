@@ -13,9 +13,8 @@ export default function NutritionChartValue(props: NutritionChartValueProps) {
                 {props.type === "calories" ? "К" :props.type === "proteins" ? "Б" :
                 props.type === "fats" ? "Ж" : "У"}
             </span>
-            <div className={`chart__value__bar__circle ${props.type}`}></div>
-            <div className={`chart__value__bar ${props.type} ${props.value >= props.maxValue ? "extra" : ""}`}>
-                <div className="chart__value__bar__line"
+            <div className={`chart__value__bar`}>
+                <div className={`chart__value__bar__line ${props.type} ${props.value >= props.maxValue ? "extra" : ""}`}
                     style={{
                         width: `${props.value / props.maxValue * 100}%`,
                     }}

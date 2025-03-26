@@ -45,9 +45,6 @@ export default function NutritionChart() {
     const [mealCarbs, setMealCarbs] = useState<number>()
     const [mealCalories, setMealCalories] = useState<number>()
     const [mealGramms, setMealGramms] = useState<number>()
-    useEffect(() => {
-        console.log(mealCalories)
-    })
     return (
         <div className="chart">
             <div className="chart__filters">
