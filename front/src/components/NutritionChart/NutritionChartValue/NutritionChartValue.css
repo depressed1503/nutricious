@@ -28,6 +28,10 @@
     border-radius: 7px;
 }
 
+.calories {
+    background-color: hsl(33, 100%, 88%);
+}
+
 .proteins {
     background-color: hsl(26, 39%, 93%);
 }

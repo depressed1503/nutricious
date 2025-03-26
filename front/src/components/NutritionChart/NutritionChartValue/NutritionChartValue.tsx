@@ -1,7 +1,7 @@
 import "./NutritionChartValue.css"
 
 type NutritionChartValueProps = {
-    type: "proteins" | "fats" | "carbs"
+    type: "calories" | "proteins" | "fats" | "carbs"
     value: number
     maxValue: number,
 }
@@ -10,7 +10,7 @@ export default function NutritionChartValue(props: NutritionChartValueProps) {
     return (
         <div className={`chart__value`}>
             <span>
-                {props.type === "proteins" ? "Б" :
+                {props.type === "calories" ? "К" :props.type === "proteins" ? "Б" :
                 props.type === "fats" ? "Ж" : "У"}
             </span>
             <div className={`chart__value__bar__circle ${props.type}`}></div>

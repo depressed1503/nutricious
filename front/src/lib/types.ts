@@ -6,6 +6,10 @@ export type CustomUser = {
     login: string,
     user_permissions: string[],
     groups: string[], 
+    max_proteins_per_day: number,
+    max_fats_per_day: number,
+    max_carbs_per_day: number,
+    max_calories_per_day: number,
 }
 
 export type Meal = {
