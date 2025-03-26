@@ -20,7 +20,7 @@ export default function NutritionChartValue(props: NutritionChartValueProps) {
                     }}
                 />
             </div>
-            <span>{props.value}/{props.maxValue}</span>
+            <span className="chart__value__value">{props.value}/{props.maxValue}</span>
         </div>
     )
 }

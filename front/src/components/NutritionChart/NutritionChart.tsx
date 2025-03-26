@@ -3,8 +3,10 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query"
 import NutritionChartValue from "./NutritionChartValue"
 import { Meal, MealTemplate } from "@/lib/types"
 import { getMeals, getMealTemplates, postMeal } from "@/lib/queryFunctions"
-import { useEffect, useMemo, useState } from "react"
+import { useMemo, useState } from "react"
 import { useAuth } from "@/context/AuthContext"
+import { Button } from "../ui/button"
+import { Input } from "../ui/input"
 
 export default function NutritionChart() {
     const { user } = useAuth()
@@ -48,9 +50,9 @@ export default function NutritionChart() {
     return (
         <div className="chart">
             <div className="chart__filters">
-                <button>Сегодня</button>
-                <button>Неделя</button>
-                <button>Кастом</button>
+                <Button variant={"outline"}>Сегодня</Button>
+                <Button variant={"outline"}>Неделя</Button>
+                <Button variant={"outline"}>Кастом</Button>
             </div>
             <div className="chart__data">
                 <NutritionChartValue type={"calories"} value={calories} maxValue={user?.max_calories_per_day || 1}></NutritionChartValue>
@@ -59,20 +61,20 @@ export default function NutritionChart() {
                 <NutritionChartValue type={"carbs"} value={carbs} maxValue={user?.max_carbs_per_day || 1}></NutritionChartValue>
             </div>
             <div className="chart__popup">
-                <input value={mealName} onChange={(e) => setMealName(e.target.value)} type="text" placeholder="Название" />
-                <input value={mealProteins} onChange={(e) => setMealProteins(Number(e.target.value))} type="number" placeholder="Белки на 100 грамм"/>
-                <input value={mealFats} onChange={(e) => setMealFats(Number(e.target.value))} type="number" placeholder="Жиры на 100 грамм" />
-                <input value={mealCarbs} onChange={(e) => setMealCarbs(Number(e.target.value))} type="number" placeholder="Углеводы на 100 грамм" />
-                <input value={mealCalories} onChange={(e) => setMealCalories(Number(e.target.value))} type="number" placeholder="ККал на 100 грамм"/>
-                <input value={mealGramms} onChange={(e) => setMealGramms(Number(e.target.value))} type="number" placeholder="Грамм"/>
-                <button onClick={() => addMealMutation.mutate({
+                <Input value={mealName} onChange={(e) => setMealName(e.target.value)} type="text" placeholder="Название" />
+                <Input value={mealProteins} onChange={(e) => setMealProteins(Number(e.target.value))} type="number" placeholder="Белки на 100 грамм"/>
+                <Input value={mealFats} onChange={(e) => setMealFats(Number(e.target.value))} type="number" placeholder="Жиры на 100 грамм" />
+                <Input value={mealCarbs} onChange={(e) => setMealCarbs(Number(e.target.value))} type="number" placeholder="Углеводы на 100 грамм" />
+                <Input value={mealCalories} onChange={(e) => setMealCalories(Number(e.target.value))} type="number" placeholder="ККал на 100 грамм"/>
+                <Input value={mealGramms} onChange={(e) => setMealGramms(Number(e.target.value))} type="number" placeholder="Грамм"/>
+                <Button onClick={() => addMealMutation.mutate({
                     name: mealName || "",
                     proteins: mealProteins || 0,
                     fats: mealFats || 0,
                     carbs: mealCarbs || 0,
                     calories_per_100_gramm: mealCalories || 0,
                     mass: mealGramms || 0
-                })}>+</button>
+                })}>+</Button>
             </div>
         </div>
     )
